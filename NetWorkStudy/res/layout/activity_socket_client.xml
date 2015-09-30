@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/edit_socketclient_ip"
+        style="@style/socketclienttext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="192.168.0.2" />
+
+    <EditText
+        android:id="@+id/edit_socketclient_port"
+        style="@style/socketclienttext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="8080" />
+
+    <EditText
+        android:id="@+id/edit_socketclient_str"
+        style="@style/socketclienttext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/client_pass_str" />
+
+    <Button
+        android:id="@+id/btn_socketclient_start"
+        style="@style/socketclienttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/client_btn" />
+
+    <Button
+        android:id="@+id/btn_socketclient_transfer"
+        style="@style/socketclienttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/client_btn_transfer" />
+
+</LinearLayout>

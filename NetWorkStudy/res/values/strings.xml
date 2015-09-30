@@ -4,5 +4,7 @@
     <string name="app_name">NetWorkStudy</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+	<string name="client_pass_str">This is a test string from client</string>
+	<string name="client_btn">Start</string>
+	<string name="client_btn_transfer">Transfer</string>
 </resources>
