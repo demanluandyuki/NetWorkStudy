@@ -8,22 +8,19 @@
         android:id="@+id/edit_socketclient_ip"
         style="@style/socketclienttext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="192.168.0.2" />
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/edit_socketclient_port"
         style="@style/socketclienttext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="8080" />
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/edit_socketclient_str"
         style="@style/socketclienttext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/client_pass_str" />
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btn_socketclient_start"

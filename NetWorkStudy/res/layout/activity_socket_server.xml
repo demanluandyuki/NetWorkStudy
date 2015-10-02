@@ -17,5 +17,11 @@
         android:layout_height="wrap_content"
         android:text="@string/client_btn"
 	    />
-
+	<Button
+	    style="@style/socketclienttext"
+	    android:id="@+id/btn_socketserver_stop"
+	            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/server_btn_stop"
+	    />
 </LinearLayout>

@@ -3,9 +3,13 @@
     tools:context="com.joyfulmath.networkstudy.NetWorkMainActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_client"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
-
+        android:showAsAction="ifRoom"
+        android:title="@string/network_client"/>
+    <item
+        android:id="@+id/action_server"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:title="@string/network_server"/>
 </menu>

@@ -8,6 +8,8 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import com.joyfulmath.networkstudy.utils.TraceLog;
+
 public class SocketClientEngine implements ISocketClient {
 
 	Socket socket = null;
@@ -34,6 +36,7 @@ public class SocketClientEngine implements ISocketClient {
 			if (outputStream != null) {
 				outputStream.write(buffer);
 				outputStream.flush();
+				TraceLog.i(String.valueOf(buffer));
 				return 0;
 			}
 		} catch (IOException e) {

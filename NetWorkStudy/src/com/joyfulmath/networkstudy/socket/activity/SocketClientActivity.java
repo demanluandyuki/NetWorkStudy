@@ -2,6 +2,7 @@ package com.joyfulmath.networkstudy.socket.activity;
 
 import com.joyfulmath.networkstudy.R;
 import com.joyfulmath.networkstudy.socket.operator.impl.SocketClientImpl;
+import com.joyfulmath.networkstudy.utils.NetWorkUtils;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -43,6 +44,15 @@ public class SocketClientActivity extends Activity {
 				clientImpl.transferStreamAsync(mTransferStr);
 			}
 		});
+		if(mEditIp == null)
+		{
+			mEditIp = (EditText) findViewById(R.id.edit_socketclient_ip);
+			mEditPort = (EditText) findViewById(R.id.edit_socketclient_port);
+			mEditTransferStr = (EditText) findViewById(R.id.edit_socketclient_str);
+			mEditIp.setText("192.168.0.3");
+			mEditPort.setText(String.valueOf(NetWorkUtils.PORT));
+			mEditTransferStr.setText("This is a test string from client");
+		}
 		clientImpl = new SocketClientImpl("SocketClientHandler");
 		clientImpl.startImpl();
 	}
@@ -83,16 +93,11 @@ public class SocketClientActivity extends Activity {
 	
 	private void readStringFromView()
 	{
-		if(mEditIp == null)
-		{
-			mEditIp = (EditText) findViewById(R.id.edit_socketclient_ip);
-			mEditPort = (EditText) findViewById(R.id.edit_socketclient_port);
-			mEditTransferStr = (EditText) findViewById(R.id.edit_socketclient_str);
-		}
-		try{
-			ip = mEditIp.getHint().toString();
 
-			port =Integer.parseInt(mEditPort.getHint().toString());
+		try{
+			ip = mEditIp.getEditableText().toString();
+			
+			port =Integer.parseInt(mEditPort.getEditableText().toString());
 			
 			mTransferStr = mEditTransferStr.getEditableText().toString();
 		}catch(Exception e)

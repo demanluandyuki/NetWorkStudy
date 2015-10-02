@@ -2,6 +2,7 @@ package com.joyfulmath.networkstudy.socket.operator.impl;
 
 import com.joyfulmath.networkstudy.socket.operator.ISocketClient;
 import com.joyfulmath.networkstudy.socket.operator.SocketClientEngine;
+import com.joyfulmath.networkstudy.utils.TraceLog;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -86,17 +87,20 @@ public class SocketClientImpl extends HandlerThread{
 
 	void startConnect(String ip,int port)
 	{
+		TraceLog.i(ip+":"+port);
 		client = new SocketClientEngine();
 		client.startConnect(ip, port);
 	}
 	
 	void transferStream(String word)
 	{
+		TraceLog.i(word);
 		client.writeStream(new StringBuffer(word));
 	}
 	
 	void close()
 	{
+		TraceLog.i();
 		client.disConnect();
 	}
 }
