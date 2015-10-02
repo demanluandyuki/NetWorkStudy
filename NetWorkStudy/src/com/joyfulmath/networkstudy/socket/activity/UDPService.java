@@ -17,6 +17,7 @@ public class UDPService extends Service {
 	
 	DatagramSocket socket = null;
 	private ServiceThread mServiceThread;
+	public boolean allowRun;
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
@@ -27,6 +28,7 @@ public class UDPService extends Service {
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
+		allowRun = true;
 		initUDPService();
 		
 	}
@@ -44,6 +46,7 @@ public class UDPService extends Service {
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
+		allowRun = false;
 	}
 	
 	
@@ -67,7 +70,7 @@ public class UDPService extends Service {
 
 		@Override
 		public void run() {
-			while (true) {
+			while (allowRun) {
 				try {
 				
 					byte[] data = new byte[4*1024];
@@ -79,10 +82,9 @@ public class UDPService extends Service {
 			        String result = new String(packet.getData(),packet.getOffset() ,packet.getLength());
 			        TraceLog.i(result);
 			        NetWorkUtils.sendBroadcast(UDPService.this,result);
-			        break;
 				} catch (IOException e) {
 					e.printStackTrace();
-
+					allowRun = false;
 				}finally{
 					
 				}
