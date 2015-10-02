@@ -1,10 +1,9 @@
 package com.joyfulmath.networkstudy.socket.activity;
 
-import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.InetAddress;
+
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -104,8 +103,7 @@ public class TCPService extends Service {
 							connection.close();
 						}
 						TraceLog.i("服务器:收到客户端的下载列表 = " + s);
-						sendBroadcast(s);
-						break;
+						NetWorkUtils.sendBroadcast(TCPService.this,s);
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -133,10 +131,5 @@ public class TCPService extends Service {
 		manager.notify(0x111, builder.build());
 	}
 	
-	public void sendBroadcast(String s)
-	{
-		Intent intent = new Intent(NetWorkUtils.ACTION_SERVER_SEND_CONTENT);
-		intent.putExtra("content", s);
-		sendBroadcast(intent);
-	}
+
 }

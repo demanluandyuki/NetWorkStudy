@@ -1,7 +1,7 @@
 package com.joyfulmath.networkstudy.socket.operator.impl;
 
 import com.joyfulmath.networkstudy.socket.operator.ISocketServer;
-import com.joyfulmath.networkstudy.socket.operator.SocketServerEngine;
+import com.joyfulmath.networkstudy.socket.operator.SocketTCPServer;
 import com.joyfulmath.networkstudy.utils.TraceLog;
 
 public class SocketServerImpl {
@@ -11,7 +11,7 @@ public class SocketServerImpl {
 	{
 		TraceLog.i(String.valueOf(port));
 		
-		server = new SocketServerEngine();
+		server = new SocketTCPServer();
 		server.startServer(port);
 		if(resultInterface!=null)
 		{

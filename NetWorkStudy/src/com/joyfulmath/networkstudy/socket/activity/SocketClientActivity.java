@@ -53,7 +53,7 @@ public class SocketClientActivity extends Activity {
 			mEditPort.setText(String.valueOf(NetWorkUtils.PORT));
 			mEditTransferStr.setText("This is a test string from client");
 		}
-		clientImpl = new SocketClientImpl("SocketClientHandler");
+		clientImpl = new SocketClientImpl(NetWorkUtils.SOCKET_MODE);
 		clientImpl.startImpl();
 	}
 

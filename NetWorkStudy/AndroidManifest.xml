@@ -54,7 +54,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <service android:name="com.joyfulmath.networkstudy.socket.activity.TCPService" ></service>   
+        <service android:name="com.joyfulmath.networkstudy.socket.activity.TCPService" ></service>
+        <service android:name="com.joyfulmath.networkstudy.socket.activity.UDPService" ></service>     
         </application>
 
 </manifest>

@@ -1,16 +1,16 @@
 package com.joyfulmath.networkstudy.socket.operator;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import com.joyfulmath.networkstudy.utils.NetWorkUtils;
 import com.joyfulmath.networkstudy.utils.TraceLog;
 
-public class SocketClientEngine implements ISocketClient {
+public class SocketTCPClient implements ISocketClient {
 
 	Socket socket = null;
 	OutputStream outputStream = null;
@@ -48,7 +48,7 @@ public class SocketClientEngine implements ISocketClient {
 
 	@Override
 	public int writeStream(String filePath) {
-		InputStream inputStream = readFromFile(filePath);
+		InputStream inputStream = NetWorkUtils.readFromFile(filePath);
 		return writeStream(inputStream);
 	}
 
@@ -98,13 +98,5 @@ public class SocketClientEngine implements ISocketClient {
 		}
 	}
 
-	private InputStream readFromFile(String filePath) {
-		try {
-			InputStream inputstream = new FileInputStream(filePath);
-			return inputstream;
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+
 }

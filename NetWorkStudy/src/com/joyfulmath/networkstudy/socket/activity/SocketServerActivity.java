@@ -33,9 +33,11 @@ public class SocketServerActivity extends Activity{
 				if(NetWorkUtils.isWiFiConnected(getApplicationContext()))
 				{
 					NetWorkUtils.getWifiIP(getApplicationContext());
-					startService(new Intent(SocketServerActivity.this, TCPService.class));
+					startServer();
 				}
 			}
+
+
 		});
 		mBtnStop = (Button) findViewById(R.id.btn_socketserver_stop);
 		mBtnStop.setOnClickListener(new OnClickListener() {
@@ -48,7 +50,16 @@ public class SocketServerActivity extends Activity{
 		mEditTransferStr = (EditText) findViewById(R.id.edit_socketserver_str);
 	}
 	
-	
+	private void startServer() {
+		if(NetWorkUtils.SOCKET_MODE.equals(NetWorkUtils.SOCKET_MODE_1))
+		{
+			startService(new Intent(SocketServerActivity.this, TCPService.class));
+		}
+		else
+		{
+			
+		}startService(new Intent(SocketServerActivity.this, UDPService.class));
+	}
 	
 	@Override
 	protected void onStart() {

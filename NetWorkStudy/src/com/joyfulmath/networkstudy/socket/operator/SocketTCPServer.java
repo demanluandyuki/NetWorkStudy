@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class SocketServerEngine implements ISocketServer {
+public class SocketTCPServer implements ISocketServer {
 
 	ServerSocket serverSocket = null;
 	String result = null;
